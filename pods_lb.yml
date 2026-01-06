@@ -2,7 +2,7 @@ apiVersion: v1
 metadata: 
       name: pod-lb
       labels:
-        app: podlp  #tags  
+        app: podlb  #tags  
 kind:  Pod
 spec: 
      containers:
