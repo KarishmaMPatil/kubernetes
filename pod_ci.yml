@@ -18,7 +18,8 @@ metadata:
 kind: Service
 spec:
     selector: 
-      app:podci
+      app: podci
+      type: ClusterIP
      ports:
       - protocol: TCP
         ports: 80
