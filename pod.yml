@@ -7,4 +7,8 @@ spec:
       - name: nginx-container 
         image: nginx
         ports:
+<<<<<<< HEAD
           - containerPort: 80
+=======
+          - containerPort: 80
+>>>>>>> a207c07d48067ba1f763493cb2107bfd82d7647c
