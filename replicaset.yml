@@ -15,7 +15,7 @@ spec:
         containers:
           - name: nginx-container 
             image: nginx
-            ports:
+            ports: 80
 selector: 
    matchLabels: 
      app: podrc
