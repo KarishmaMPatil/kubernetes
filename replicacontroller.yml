@@ -7,12 +7,12 @@ metadata:
 spec: 
   replicas: 3 
   selector:
-     app: podlb 
+     app: podrc
   template: 
     metadata: 
-     name: lb-pod 
+     name: rc-pod 
      labels:
-         app: podlb  #tags     
+         app: podrc  #tags     
     spec: 
         containers:
           - name: nginx-container 
