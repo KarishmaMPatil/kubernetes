@@ -1,16 +1,16 @@
-apiVersion: apps/v1
+apiVersion:  apps/v1  
 kind: ReplicaSet
 metadata:
    name: rs
    labels: 
       app: myapp
 spec:
-   replicas: 4
+   replicas: 3
    template:
      metadata: 
        name: np-pod
        labels:
-         app: podnp
+         app: podrs
 spec: 
     containers: 
        - name: nginx-container
@@ -19,4 +19,4 @@ spec:
            - containerPort: 80
 selector: 
    matchLabels: 
-     app: podnp
+     app: podrs
