@@ -3,7 +3,7 @@ kind: Namespace
 metadata: 
     name: namespace
     labels: 
-      name: namespace
+      name: mynamespace
 
 ---
 
