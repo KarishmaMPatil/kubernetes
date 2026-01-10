@@ -1,9 +1,9 @@
 apiVersion: v1 
 kind:  Namespace
 metadata: 
-    name: mynamespce
+    name: mynamespace      #namespace name
     labels:
-        name: mynamespac
+        name: mynamespace
 --- 
 apiVersion: v1 
 metadata: 
