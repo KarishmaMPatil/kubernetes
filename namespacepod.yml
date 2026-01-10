@@ -3,7 +3,7 @@ kind:  Namespace
 metadata: 
     name: mynamespce
     labels:
-        name: mynamespace 
+        name: mynamespac
 --- 
 apiVersion: v1 
 metadata: 
