@@ -3,7 +3,7 @@ kind: DaemonSet
 metadata: 
    name: daemonset
    labels:
-      app: damonset
+      app: daemonset
 spec:
     template:
       metadata:
