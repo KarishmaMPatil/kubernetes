@@ -10,7 +10,7 @@ spec:
        name: cwagent-pod
        labels: 
          app: daemonset
-    spec:
+      spec:
        containers:
         - name: cwagent-container 
           image: amazon/cloudwatch-agent
