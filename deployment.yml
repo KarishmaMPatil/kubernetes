@@ -3,25 +3,25 @@ kind: Deployment
 metadata: 
     name: deploy
     labels:
-       app: my-app
+      app: my-app
 spec: 
-    replicas: 4
-    strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1  #number of pods that can be created above the desired number of pods in short newly updated new app version pods created at a time
-      maxUnavailable: 1
-    template:
-        metadata:
-          name: nginx-pod
-          labels: 
-            app: my-app
-        spec:
-          containers:
-             - name: nginx-container
-               image: nginx
-                ports:
-                   containerPort: 80
-    selector:
+  replicas: 4
+  strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1  #number of pods that can be created above the desired number of pods in short newly updated new app version pods created at a time
+    maxUnavailable: 1
+  template:
+    metadata:
+      name: nginx-pod
+      labels: 
+        app: my-app
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+          ports:
+            containerPort: 80
+  selector:
       matchLabels:
         app: my-app            
