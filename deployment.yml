@@ -18,10 +18,10 @@ spec:
             app: my-app
         spec:
           containers:
-             - name: image-container
+             - name: nginx-container
                image: nginx
                 ports:
-                   containerPort:80
+                   containerPort: 80
     selector:
       matchLabels:
         app: my-app            
