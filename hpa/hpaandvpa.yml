@@ -28,11 +28,11 @@ spec:
             - containerPort: 80
           resources:
             requests:
-              cpu: "1000m"
-              memory: "512Mi"    #vertical autoscaling minimum resources 
+              cpu: "100m"
+              memory: "128Mi"    #vertical autoscaling minimum resources 
             limits:
-              cpu: "2000m"
-              memory: "1024Mi"  #vertical autoscaling maximum resources 
+              cpu: "200m"
+              memory: "204Mi"  #vertical autoscaling maximum resources 
 --- 
 apiVersion:   autoscaling/v2 
 kind: HorizontalPodAutoscaler
