@@ -1,0 +1,60 @@
+apiVersion: apps/v1                           
+kind: Deployment
+metadata:
+  name: my-httpddeployment 
+  labels:
+    app: my-httpdapp
+spec: 
+  replicas: 1  #desired state 
+  selector:
+    matchLabels:
+      app: my-httpdapp
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1  #number of pods that can be created above the desired number of pods in short newly updated new app version pods created at a time
+      maxUnavailable: 1  #number of pods that can be unavailable during the update process in short old app version pods terminated at a time
+  template:
+    metadata: 
+     name: httpd-pod
+     labels:
+       app: my-httpdapp
+     
+    spec: 
+      containers:
+        - name: httpd-container 
+          image: httpd:latest     #v1
+          ports:
+            - containerPort: 81
+          resources:
+            requests:
+              cpu: "125m"
+              memory: "64Mi"    #vertical autoscaling minimum resources 
+            limits:
+              cpu: "128m"
+              memory: "128Mi"  #vertical autoscaling maximum resources 
+--- 
+apiVersion:   autoscaling/v2 
+kind: HorizontalPodAutoscaler
+metadata: 
+   name: my-httpdhpa
+   labels:
+      app: my-httpdapp
+spec: 
+    scaleTargetRef: 
+       apiVersion: apps/v1
+       kind: Deployment
+       name: my-httpddeployment 
+    minReplicas: 1 
+    maxReplicas: 2 
+    metrics: 
+      - type: Resource
+        resource: 
+           name: cpu
+           target:
+              type: Utilization
+              averageUtilization: 10   #horizontal autoscaling based on cpu utilization 
+
+
+
+              #kubectl exec -it <pod-name> -- /bin/sh -c 'for i in 1 2 3 4; do while : ; do : ; done & done'
